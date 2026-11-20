@@ -11,7 +11,7 @@ Vintage Story 整合包兼容补丁，模组 ID 为 `vsscpmod`，版本为 `1.0.
 | 方块 | 围栏连接变化时保留加固与锁定数据，Fields of Salt 岩石连接兼容 |
 | 车船与石板 | 车船连续货位占用、石板装卸、铁链牵引、草地选中修复、光照与投影 |
 | 渲染 | Toolsmith 和玩家网格恢复，Dead 存活玩家可见性兼容，披风渲染恢复及失效纹理图集防护 |
-| 界面 | 手册搜索缓存与异常恢复、创意分类滚动、Jaunt 骑乘 HUD、Komet 快捷键和中文字体兼容 |
+| 界面 | 创意分类滚动、Jaunt 骑乘 HUD、Komet 快捷键和中文字体兼容 |
 | 技能与生理 | Seraph Leveling 与 SLSS 技能效果面板，满足兼容条件时迁移旧 BodyPhys 营养数据 |
 | 物品与资产 | Billposting 张贴与取下、VintageCanvas 绘画与纹理、Envelopes 戒指预览、Candela 火把及 QP 手刨修复 |
 | 配方与显示 | 披风、蜂箱木桶、海草、硫酸铬、派、Long-term food 配方与食品兼容 |
@@ -72,7 +72,6 @@ Vintage Story 整合包兼容补丁，模组 ID 为 `vsscpmod`，版本为 `1.0.
 
 | 路径 | 内容 |
 | --- | --- |
-| `Cache/vsscpmod-handbook/` | 客户端手册描述缓存 |
 | `ModData/vsscpmod-bodyphys-backups/` | 服务端旧 BodyPhys 数据迁移备份及迁移记录 |
 | `Logs/client-main.log`、`Logs/client-debug.log` | 客户端渲染、兼容及库存诊断日志 |
 

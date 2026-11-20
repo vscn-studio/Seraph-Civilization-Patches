@@ -14,7 +14,6 @@
   "info-restricted": "Your precise time and coordinate information is restricted.",
   "info-unrestricted": "Your information restrictions are disabled until you disconnect.",
   "map-location-hidden": "Location hidden",
-  "handbook-detail-incomplete": "Some handbook data could not be displayed ({0}). The available content is preserved. See client-main.log for the affected item or mod; reopen this page after loading completes.",
   "stack-repair-none": "Your active stack has no repairable RKN phantom durability. Hold an ordinary item with the incorrect gray bar and try again.",
   "stack-repair-success": "Removed phantom durability from your active stack. It can now merge with otherwise identical normal items.",
   "quarry-carry-help": "Rock blocks in this stack: {0}. Walking stops when the total carried load reaches {1} blocks.",

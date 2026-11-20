@@ -14,7 +14,6 @@
   "info-restricted": "你已启用具体时间和坐标信息限制。",
   "info-unrestricted": "已解除你的信息限制；断开连接后恢复默认限制。",
   "map-location-hidden": "位置已隐藏",
-  "handbook-detail-incomplete": "部分手册数据无法显示（{0}），已保留可用内容。具体物品或模组见 client-main.log；若仍在加载，请完成后重新打开本页。",
   "stack-repair-none": "主手物品没有可修复的 RKN 异常耐久属性。请拿起带异常灰条的普通物品后重试。",
   "stack-repair-success": "已清除主手整叠物品的异常耐久属性，可与其他属性一致的正常同类物品堆叠。",
   "quarry-carry-help": "本叠含石块：{0}。随身合计达到 {1} 块无法步行。",

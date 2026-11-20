@@ -43,8 +43,6 @@ switch (suite)
     case "billposting-interaction": BillpostingInteractionChecks.Run(root, extra); break;
     case "startup-assets": StartupAssetChecks.Run(root, game, extra); break;
     case "startup-recipes": StartupRecipeChecks.Run(root, extra); break;
-    case "handbook": HandbookCacheChecks.Run(root, extra); break;
-    case "handbook-content": HandbookContentChecks.Run(root, game); break;
     case "chromium": ChromiumSulfateChecks.Run(game, extra, args.ElementAtOrDefault(4)); break;
     case "chiseltools": ChiselToolsChecks.Run(extra); break;
     case "chisel-planes": ChiselPlaneChecks.Run(extra); break;

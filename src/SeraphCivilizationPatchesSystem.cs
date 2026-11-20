@@ -21,8 +21,6 @@ public sealed class SeraphCivilizationPatchesSystem : ModSystem
     private JauntStaminaHudCompatibility? jauntStaminaHud;
     private BillpostingFontCompatibility? billpostingFont;
     private BillpostingInteractionCompatibility? billpostingInteraction;
-    private HandbookSearchCache? handbookSearchCache;
-    private HandbookDetailSafety? handbookDetailSafety;
     private KometHotkeyCompatibility? kometHotkeys;
     private KometFontCompatibility? kometFonts;
     private BodyPhysMigration? bodyPhysMigration;
@@ -92,8 +90,6 @@ public sealed class SeraphCivilizationPatchesSystem : ModSystem
         kometHotkeys = KometHotkeyCompatibility.TryCreate(api);
         kometFonts = KometFontCompatibility.TryCreate(api);
         jauntStaminaHud = JauntStaminaHudCompatibility.TryCreate(api);
-        handbookDetailSafety = HandbookDetailSafety.TryCreate(api);
-        handbookSearchCache = HandbookSearchCache.TryCreate(api);
         billpostingFont = BillpostingFontCompatibility.TryCreate(api);
         inventoryDiagnostics = new InventoryInputDiagnostics(api);
         clientInformation = new InformationRestrictions(api);
@@ -159,10 +155,6 @@ public sealed class SeraphCivilizationPatchesSystem : ModSystem
         kometFonts = null;
         jauntStaminaHud?.Dispose();
         jauntStaminaHud = null;
-        handbookDetailSafety?.Dispose();
-        handbookDetailSafety = null;
-        handbookSearchCache?.Dispose();
-        handbookSearchCache = null;
         billpostingFont?.Dispose();
         billpostingFont = null;
         billpostingInteraction?.Dispose();

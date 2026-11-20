@@ -3,7 +3,7 @@
   "modid": "vsscpmod",
   "name": "Seraph Civilization Patches",
   "authors": ["HansJack"],
-  "description": "Compatibility fixes for crafting, hauling, vehicles, maps, handbooks and painting in Seraph Civilization.",
+  "description": "Compatibility fixes for crafting, hauling, vehicles, maps and painting in Seraph Civilization.",
   "version": "1.0.0",
   "side": "Universal",
   "requiredOnClient": true,
