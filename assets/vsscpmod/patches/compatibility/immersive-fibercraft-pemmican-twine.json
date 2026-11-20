@@ -1,0 +1,30 @@
+[
+  {
+    "file": "pemmican:recipes/grid/papyrus-fiber.json",
+    "op": "add",
+    "path": "/0/enabled",
+    "value": false,
+    "dependsOn": [{"modid": "spinningwheel"}, {"modid": "longtermfood"}]
+  },
+  {
+    "file": "pemmican:recipes/grid/papyrus-fiber.json",
+    "op": "add",
+    "path": "/0/showInCreatedBy",
+    "value": false,
+    "dependsOn": [{"modid": "spinningwheel"}, {"modid": "longtermfood"}]
+  },
+  {
+    "file": "pemmican:recipes/grid/algae.json",
+    "op": "add",
+    "path": "/9/enabled",
+    "value": false,
+    "dependsOn": [{"modid": "spinningwheel"}, {"modid": "longtermfood"}]
+  },
+  {
+    "file": "pemmican:recipes/grid/algae.json",
+    "op": "add",
+    "path": "/9/showInCreatedBy",
+    "value": false,
+    "dependsOn": [{"modid": "spinningwheel"}, {"modid": "longtermfood"}]
+  }
+]

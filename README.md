@@ -1,6 +1,6 @@
 # Seraph Civilization Patches
 
-Vintage Story 整合包兼容补丁，模组 ID 为 `vsscpmod`，版本为 `1.0.0`，支持游戏 `1.22.3+`。客户端和服务端均需安装同一发布包，相关兼容功能随对应模组启用。
+Vintage Story 整合包兼容补丁，模组 ID 为 `vsscpmod`，版本为 `1.0.1`，支持游戏 `1.22.3+`。客户端和服务端均需安装同一发布包，相关兼容功能随对应模组启用。
 
 ## 功能
 

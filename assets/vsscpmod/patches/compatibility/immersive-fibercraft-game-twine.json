@@ -1,0 +1,16 @@
+[
+  {
+    "file": "game:recipes/grid/twine.json",
+    "op": "add",
+    "path": "/enabled",
+    "value": false,
+    "dependsOn": [{"modid": "spinningwheel"}]
+  },
+  {
+    "file": "game:recipes/grid/twine.json",
+    "op": "add",
+    "path": "/showInCreatedBy",
+    "value": false,
+    "dependsOn": [{"modid": "spinningwheel"}]
+  }
+]

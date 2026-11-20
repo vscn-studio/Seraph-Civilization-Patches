@@ -72,7 +72,7 @@ public sealed class SeraphCivilizationPatchesSystem : ModSystem
         rknCrafting = RknCraftingCompatibility.TryCreate(api);
         toolsmithCrafting = ToolsmithCraftingCompatibility.TryCreate(api);
         rknCrafting?.RegisterRecoveryCommand(api);
-        api.Logger.Notification("[vsscpmod] 1.0.0 loaded. Information restrictions are configurable with /vsscpmod info reload; RKN crafting support is optional.");
+        api.Logger.Notification("[vsscpmod] 1.0.1 loaded. Information restrictions are configurable with /vsscpmod info reload; RKN crafting support is optional.");
     }
 
     public override void StartClientSide(ICoreClientAPI api)
