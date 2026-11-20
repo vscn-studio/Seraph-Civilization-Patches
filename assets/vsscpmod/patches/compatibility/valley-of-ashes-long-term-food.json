@@ -1,0 +1,106 @@
+[
+  {
+    "file": "game:blocktypes/plant/aquatic/seagrass.json",
+    "op": "addmerge",
+    "path": "/drops",
+    "value": [],
+    "dependsOn": [
+      { "modid": "longtermfood" },
+      { "modid": "ashes" }
+    ],
+    "side": "Server"
+  },
+  {
+    "file": "game:blocktypes/plant/aquatic/seagrass.json",
+    "op": "addmerge",
+    "path": "/dropsByType/*-green-*/-",
+    "value": {
+      "type": "item",
+      "code": "ashes:plantdebris-seagrass",
+      "quantity": { "avg": 1, "var": 1 }
+    },
+    "dependsOn": [
+      { "modid": "longtermfood" },
+      { "modid": "ashes" }
+    ],
+    "side": "Server"
+  },
+  {
+    "file": "game:blocktypes/plant/aquatic/seagrass.json",
+    "op": "addmerge",
+    "path": "/dropsByType/*-yellow-*/-",
+    "value": {
+      "type": "item",
+      "code": "ashes:plantdebris-seagrass",
+      "quantity": { "avg": 1, "var": 1 }
+    },
+    "dependsOn": [
+      { "modid": "longtermfood" },
+      { "modid": "ashes" }
+    ],
+    "side": "Server"
+  },
+  {
+    "file": "game:blocktypes/plant/aquatic/seagrass.json",
+    "op": "addmerge",
+    "path": "/dropsByType/*-orange-*/-",
+    "value": {
+      "type": "item",
+      "code": "ashes:plantdebris-seagrass",
+      "quantity": { "avg": 1, "var": 1 }
+    },
+    "dependsOn": [
+      { "modid": "longtermfood" },
+      { "modid": "ashes" }
+    ],
+    "side": "Server"
+  },
+  {
+    "file": "game:blocktypes/plant/aquatic/seagrass.json",
+    "op": "addmerge",
+    "path": "/dropsByType/*-red-*/-",
+    "value": {
+      "type": "item",
+      "code": "ashes:plantdebris-seagrass",
+      "quantity": { "avg": 1, "var": 1 }
+    },
+    "dependsOn": [
+      { "modid": "longtermfood" },
+      { "modid": "ashes" }
+    ],
+    "side": "Server"
+  },
+  {
+    "file": "game:blocktypes/plant/aquatic/seaweed.json",
+    "op": "addmerge",
+    "path": "/dropsByType",
+    "value": {
+      "*-top": [
+        { "type": "block", "code": "seaweed-section", "quantity": { "avg": 1, "var": 0 }, "tool": "knife" },
+        { "type": "block", "code": "seaweed-section", "quantity": { "avg": 1 } },
+        { "type": "item", "code": "ashes:plantdebris-seaweed", "quantity": { "avg": 1, "var": 1 } }
+      ],
+      "*-section": [
+        { "type": "block", "code": "seaweed-section", "quantity": { "avg": 1, "var": 0 }, "tool": "knife" },
+        { "type": "block", "code": "seaweed-section", "quantity": { "avg": 1 } },
+        { "type": "item", "code": "ashes:plantdebris-seaweed", "quantity": { "avg": 1, "var": 1 } }
+      ]
+    },
+    "dependsOn": [
+      { "modid": "longtermfood" },
+      { "modid": "ashes" }
+    ],
+    "side": "Server"
+  },
+  {
+    "file": "game:blocktypes/plant/aquatic/seaweed.json",
+    "op": "addmerge",
+    "path": "/drops",
+    "value": [],
+    "dependsOn": [
+      { "modid": "longtermfood" },
+      { "modid": "ashes" }
+    ],
+    "side": "Server"
+  }
+]

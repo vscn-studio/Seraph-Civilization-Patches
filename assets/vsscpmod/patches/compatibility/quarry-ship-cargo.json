@@ -1,0 +1,9 @@
+[
+  {
+    "file": "stonequarry:blocktypes/stoneslab.json",
+    "op": "add",
+    "path": "/behaviors/-",
+    "value": { "name": "VsscpmodQuarryShipCargo" },
+    "dependsOn": [{ "modid": "stonequarryrepckfipil" }]
+  }
+]

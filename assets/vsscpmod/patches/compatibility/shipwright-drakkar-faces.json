@@ -1,0 +1,34 @@
+[
+  {
+    "file": "shipwright:shapes/entity/drakkar.json",
+    "op": "add",
+    "path": "/elements/0/children/6/children/4/children/2/children/2/children/2/children/2/children/2/children/2/children/4/children/3/children/0/faces/north/enabled",
+    "value": false,
+    "dependsOn": [{"modid": "shipwright"}],
+    "side": "client"
+  },
+  {
+    "file": "shipwright:shapes/entity/drakkar.json",
+    "op": "add",
+    "path": "/elements/0/children/6/children/4/children/2/children/2/children/2/children/2/children/2/children/2/children/4/children/3/children/0/faces/south/enabled",
+    "value": false,
+    "dependsOn": [{"modid": "shipwright"}],
+    "side": "client"
+  },
+  {
+    "file": "shipwright:shapes/entity/drakkar.json",
+    "op": "add",
+    "path": "/elements/0/children/6/children/4/children/2/children/2/children/2/children/2/children/2/children/2/children/4/children/3/children/0/faces/west/enabled",
+    "value": false,
+    "dependsOn": [{"modid": "shipwright"}],
+    "side": "client"
+  },
+  {
+    "file": "shipwright:shapes/entity/drakkar.json",
+    "op": "add",
+    "path": "/elements/0/children/6/children/4/children/2/children/2/children/2/children/2/children/2/children/2/children/4/children/3/children/0/faces/up/enabled",
+    "value": false,
+    "dependsOn": [{"modid": "shipwright"}],
+    "side": "client"
+  }
+]

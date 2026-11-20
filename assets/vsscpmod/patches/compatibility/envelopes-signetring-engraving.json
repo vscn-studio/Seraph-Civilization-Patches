@@ -1,0 +1,10 @@
+[
+  {
+    "file": "envelopes:itemtypes/signetring.json",
+    "op": "add",
+    "path": "/textures/engraving",
+    "value": {"base": "game:block/metal/ingot/gold"},
+    "dependsOn": [{"modid": "envelopes"}],
+    "side": "server"
+  }
+]

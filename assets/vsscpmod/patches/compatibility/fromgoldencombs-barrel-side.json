@@ -1,0 +1,10 @@
+[
+  {
+    "file": "fromgoldencombs:recipes/barrel/langstrothparts.json",
+    "op": "addmerge",
+    "path": "/0/ingredients/1/skipVariants",
+    "value": ["veryaged"],
+    "dependsOn": [{"modid": "fromgoldencombs"}],
+    "side": "server"
+  }
+]

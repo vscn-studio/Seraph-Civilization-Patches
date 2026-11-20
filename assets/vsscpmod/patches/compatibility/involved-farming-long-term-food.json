@@ -1,0 +1,28 @@
+[
+  {
+    "file": "pemmican:blocktypes/plant/crop/healbulb.json",
+    "op": "addmerge",
+    "path": "/behaviorsByType/crop-healbulb-16",
+    "value": [
+      { "name": "FallowPlacer" }
+    ],
+    "dependsOn": [
+      { "modid": "longtermfood" },
+      { "modid": "invfarming" }
+    ],
+    "side": "Server"
+  },
+  {
+    "file": "pemmican:blocktypes/plant/crop/aloe.json",
+    "op": "addmerge",
+    "path": "/behaviorsByType/*-aloe-9",
+    "value": [
+      { "name": "FallowPlacer" }
+    ],
+    "dependsOn": [
+      { "modid": "longtermfood" },
+      { "modid": "invfarming" }
+    ],
+    "side": "Server"
+  }
+]

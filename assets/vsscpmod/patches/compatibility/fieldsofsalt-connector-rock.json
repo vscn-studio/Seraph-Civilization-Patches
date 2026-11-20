@@ -1,0 +1,10 @@
+[
+  {
+    "file": "fieldsofsalt:recipes/grid/connector.json",
+    "op": "addmerge",
+    "path": "/ingredients/R/skipVariants",
+    "value": ["obsidian"],
+    "dependsOn": [{"modid": "fieldsofsalt"}],
+    "side": "server"
+  }
+]

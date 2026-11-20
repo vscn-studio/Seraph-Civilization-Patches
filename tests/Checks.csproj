@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GamePath Condition="'$(GamePath)' == ''">E:/vintagestory/Vintagestory</GamePath>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../SeraphCivilizationPatches.csproj" AdditionalProperties="VINTAGE_STORY=$(GamePath)" />
+    <Reference Include="VintagestoryAPI" HintPath="$(GamePath)/VintagestoryAPI.dll" />
+    <Reference Include="VintagestoryLib" HintPath="$(GamePath)/VintagestoryLib.dll" />
+    <Reference Include="cairo-sharp" HintPath="$(GamePath)/Lib/cairo-sharp.dll" />
+    <Reference Include="VSSurvivalMod" HintPath="$(GamePath)/Mods/VSSurvivalMod.dll" />
+    <Reference Include="VSEssentials" HintPath="$(GamePath)/Mods/VSEssentials.dll" />
+    <Reference Include="Newtonsoft.Json" HintPath="$(GamePath)/Lib/Newtonsoft.Json.dll" />
+    <Reference Include="0Harmony" HintPath="$(GamePath)/Lib/0Harmony.dll" />
+    <Reference Include="protobuf-net" HintPath="$(GamePath)/Lib/protobuf-net.dll" />
+  </ItemGroup>
+</Project>

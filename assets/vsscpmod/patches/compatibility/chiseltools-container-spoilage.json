@@ -1,0 +1,35 @@
+[
+  {
+    "file": "chiseltools:blocktypes/chiseledchest.json",
+    "op": "remove",
+    "path": "/attributes/spoilSpeedMulByFoodCat",
+    "dependsOn": [
+      { "modid": "chiseltools" }
+    ],
+    "side": "Server"
+  },
+  {
+    "file": "chiseltools:blocktypes/chiseledchestnerfed.json",
+    "op": "remove",
+    "path": "/attributes/spoilSpeedMulByFoodCat",
+    "dependsOn": [
+      { "modid": "chiseltools" }
+    ],
+    "side": "Server"
+  },
+  {
+    "file": "chiseltools:blocktypes/chiseledstoragevessel.json",
+    "op": "replace",
+    "path": "/attributes/spoilSpeedMulByFoodCat",
+    "value": {
+      "normal": {
+        "vegetable": 0.75,
+        "grain": 0.5
+      }
+    },
+    "dependsOn": [
+      { "modid": "chiseltools" }
+    ],
+    "side": "Server"
+  }
+]

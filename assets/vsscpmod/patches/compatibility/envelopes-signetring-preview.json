@@ -1,0 +1,18 @@
+[
+  {
+    "file": "envelopes:itemtypes/signetring.json",
+    "op": "replace",
+    "path": "/guiTransform/translation",
+    "value": {"x": 0, "y": 0, "z": 0},
+    "dependsOn": [{"modid": "envelopes"}],
+    "side": "server"
+  },
+  {
+    "file": "envelopes:itemtypes/signetring.json",
+    "op": "replace",
+    "path": "/guiTransform/origin",
+    "value": {"x": 0, "y": -0.02890625, "z": 0.009375},
+    "dependsOn": [{"modid": "envelopes"}],
+    "side": "server"
+  }
+]

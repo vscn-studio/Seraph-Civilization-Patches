@@ -1,0 +1,75 @@
+# .NET build output (all projects)
+[Bb]in/
+[Oo]bj/
+/artifacts/
+/publish/
+/dist/
+/packages/
+*.nupkg
+*.snupkg
+*.binlog
+*.dll
+*.exe
+*.pdb
+*.zip
+*.7z
+
+# Local third-party test inputs; never distribute with the mod
+/tests/dependencies/
+
+# Local game data
+/Cache/
+/Logs/
+/ModConfig/
+/ModData/
+/Saves/
+
+# Test results and coverage
+TestResults/
+coverage/
+*.coverage
+*.coveragexml
+*.trx
+*.lcov
+
+# Visual Studio / Rider local state
+.vs/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.DotSettings.user
+
+# Python generator caches and local environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Local configuration; keep shareable templates
+/AGENTS.md
+.env
+.env.*
+!.env.example
+!.env.sample
+!.env.template
+
+# Logs, crash dumps and temporary editor files
+*.log
+*.dmp
+*.stackdump
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+
+# OS metadata
+.DS_Store
+Thumbs.db
+Desktop.ini

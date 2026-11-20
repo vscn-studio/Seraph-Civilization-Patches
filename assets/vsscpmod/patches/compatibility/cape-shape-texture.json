@@ -1,0 +1,10 @@
+[
+  {
+    "file": "capes:shapes/item/cape-normal.json",
+    "op": "replace",
+    "path": "/textures/pattern",
+    "value": "game:block/cloth/linen/blue",
+    "dependsOn": [{"modid": "capes"}],
+    "side": "client"
+  }
+]

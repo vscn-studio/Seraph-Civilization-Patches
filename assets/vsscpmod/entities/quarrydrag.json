@@ -1,0 +1,36 @@
+{
+  "code": "quarrydrag",
+  "class": "VsscpmodQuarryDrag",
+  "tags": [
+    "inanimate"
+  ],
+  "hitboxSize": {
+    "x": 1,
+    "y": 1
+  },
+  "eyeHeight": 0.5,
+  "canClimb": false,
+  "client": {
+    "renderer": "VsscpmodQuarryDrag",
+    "shape": {
+      "base": "vsscpmod:quarrydrag"
+    },
+    "behaviors": [
+      {
+        "code": "passivephysics"
+      },
+      {
+        "code": "interpolateposition"
+      }
+    ]
+  },
+  "server": {
+    "behaviors": [
+      {
+        "code": "passivephysics",
+        "groundDragFactor": 1,
+        "boyancyMul": 0
+      }
+    ]
+  }
+}

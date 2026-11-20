@@ -1,0 +1,10 @@
+[
+  {
+    "file": "billposting:shapes/billpost.json",
+    "op": "replace",
+    "path": "/textures/billpost",
+    "value": "billposting:billpost",
+    "dependsOn": [{"modid": "billposting"}],
+    "side": "client"
+  }
+]
