@@ -92,6 +92,8 @@ static class LevelingSurvivalChecks
         var enabled = new HashSet<string>();
         var loader = Proxy.Create<IModLoader>((m, a) => m.Name == "IsModEnabled" ? enabled.Contains((string)a![0]!) : null);
         var render = Proxy.Create<IRenderAPI>((m, _) => m.Name switch { "get_FrameHeight" => 1080, "get_FrameWidth" => 1920, _ => null });
+        int mouseX = 0, mouseY = 0;
+        var input = Proxy.Create<IInputAPI>((m, _) => m.Name switch { "get_MouseX" => mouseX, "get_MouseY" => mouseY, _ => null });
         ICoreClientAPI api = null!;
         GuiComposer CreateComposer(ElementBounds bounds, string key)
         {
@@ -99,7 +101,7 @@ static class LevelingSurvivalChecks
             return (GuiComposer)Activator.CreateInstance(typeof(GuiComposer), BindingFlags.NonPublic | BindingFlags.Instance, null, [api, bounds, key], null)!;
         }
         var gui = Proxy.Create<IGuiAPI>((m, a) => m.Name switch { "CreateCompo" => CreateComposer((ElementBounds)a![1]!, (string)a[0]!), "get_WindowBounds" => ElementBounds.Empty, _ => null });
-        api = Proxy.Create<ICoreClientAPI>((m, _) => m.Name switch { "get_ModLoader" => loader, "get_Logger" => logger, "get_Side" => EnumAppSide.Client, "get_Render" => render, "get_Gui" => gui, _ => null });
+        api = Proxy.Create<ICoreClientAPI>((m, _) => m.Name switch { "get_ModLoader" => loader, "get_Logger" => logger, "get_Side" => EnumAppSide.Client, "get_Render" => render, "get_Gui" => gui, "get_Input" => input, _ => null });
         AccessTools.Property(leveling, "ServerApi").SetValue(null, Proxy.Create<ICoreServerAPI>((m, _) => m.Name switch {
             "get_ModLoader" => loader, "get_Logger" => logger, "get_Side" => EnumAppSide.Server, _ => null }));
         foreach (var mods in new[] { Array.Empty<string>(), new[] { "seraphleveling" }, new[] { "vsslssmod" } })
@@ -229,8 +231,7 @@ static class LevelingSurvivalChecks
             foreach (float scale in new[] { 1f, 1.5f, 2f })
             {
                 RuntimeEnv.GUIScale = scale;
-                var composer = (GuiComposer)Activator.CreateInstance(typeof(GuiComposer), BindingFlags.NonPublic | BindingFlags.Instance, null,
-                    [api, ElementBounds.Fixed(0, 0, width, 800), "skill-test"], null)!;
+                var composer = CreateComposer(ElementBounds.Fixed(0, 0, width, 800), "skill-test");
                 Call(ui, "ComposeRows", view, composer, width, 214d);
                 var first = composer.GetDynamicText("vsscpmod.skill.miningSpeedMul");
                 var last = composer.GetDynamicText("vsscpmod.skill.unlocks");
@@ -250,6 +251,40 @@ static class LevelingSurvivalChecks
                 Near(first!.Bounds.ParentBounds.fixedY, -60, "scroll offset converts device pixels to layout units");
                 scroll.CurrentYPosition = 100000; scroll.TriggerChanged();
                 Near(first.Bounds.ParentBounds.fixedY, -690, "scroll clamps to last visible rows");
+                // Dispatch through the actual composer: its fallback pass sends wheel
+                // events to every element even when the pointer is outside the window.
+                composer.Bounds.fixedX = 100; composer.Bounds.fixedY = 80;
+                composer.Bounds.CalcWorldBounds();
+                scroll.Bounds.CalcWorldBounds();
+                scroll.SetHeights(180 * scale, 870 * scale);
+                scroll.CurrentYPosition = 0; scroll.TriggerChanged();
+                MouseWheelEventArgs WheelAt(double x, double y)
+                {
+                    mouseX = (int)x; mouseY = (int)y;
+                    var wheel = new MouseWheelEventArgs { delta = -1, deltaPrecise = -1 };
+                    composer.OnMouseWheel(wheel);
+                    return wheel;
+                }
+                var viewport = hoverElement.InsideClipBounds;
+                var outside = WheelAt(composer.Bounds.absX - 20, viewport.absY + 20);
+                Check(!outside.IsHandled, "skill window leaves another window's wheel event unhandled");
+                Near(scroll.CurrentYPosition, 0, "wheel outside skill window does not move skill rows");
+                var other = CreateComposer(ElementBounds.Fixed(0, 0, 80, 300), "other-scroll-test");
+                other.AddVerticalScrollbar(_ => { }, ElementBounds.Fixed(0, 0, 16, 180), "other");
+                other.Bounds.CalcWorldBounds();
+                var otherScroll = other.GetScrollbar("other");
+                otherScroll.Bounds.CalcWorldBounds();
+                otherScroll.SetHeights(180 * scale, 870 * scale);
+                if (!outside.IsHandled) other.OnMouseWheel(outside);
+                Check(outside.IsHandled && otherScroll.CurrentYPosition > 0, "another window can scroll after skill-window dispatch");
+                Check(!WheelAt(viewport.absX + 20, viewport.absY - 10).IsHandled, "skill title does not capture wheel events");
+                Check(!WheelAt(viewport.absX + 20, viewport.absY + viewport.OuterHeight + 10).IsHandled,
+                    "clipped skill rows below the viewport do not capture wheel events");
+                Check(WheelAt(viewport.absX + 20, viewport.absY + 20).IsHandled && scroll.CurrentYPosition > 0,
+                    "wheel over visible skill rows scrolls the list at the current GUI scale");
+                scroll.CurrentYPosition = 0; scroll.TriggerChanged();
+                Check(WheelAt(scroll.Bounds.absX + 2, scroll.Bounds.absY + 20).IsHandled && scroll.CurrentYPosition > 0,
+                    "wheel over skill scrollbar still scrolls the list");
                 Set(bridge, "LastReceivedUtc", DateTime.UtcNow.AddSeconds(-10));
                 Call(ui, "RefreshRows", view, composer);
                 Check(drawnText["vsscpmod.skill.miningSpeedMul"].Contains("Unavailable"), "stale snapshot clears previously visible skill values");

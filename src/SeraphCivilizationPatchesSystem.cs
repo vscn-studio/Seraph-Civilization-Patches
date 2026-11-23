@@ -39,7 +39,6 @@ public sealed class SeraphCivilizationPatchesSystem : ModSystem
     private ClientMeshRecovery? clientMeshRecovery;
     private CapeRenderCompatibility? capeRenderCompatibility;
     private CreativeTabSelector? creativeTabSelector;
-    private ChiselToolsHandPlanerCompatibility? chiselToolsHandPlaner;
 
     public override double ExecuteOrder() => 1.4;
 
@@ -61,7 +60,6 @@ public sealed class SeraphCivilizationPatchesSystem : ModSystem
         candelaClickUpTorches = CandelaClickUpTorchesCompatibility.TryCreate(api);
         billpostingInteraction = BillpostingInteractionCompatibility.TryCreate(api);
         levelingSurvival = LevelingSurvivalCompatibility.TryCreate(api);
-        chiselToolsHandPlaner = ChiselToolsHandPlanerCompatibility.TryCreate(api);
     }
 
     public override void StartServerSide(ICoreServerAPI api)
@@ -72,7 +70,7 @@ public sealed class SeraphCivilizationPatchesSystem : ModSystem
         rknCrafting = RknCraftingCompatibility.TryCreate(api);
         toolsmithCrafting = ToolsmithCraftingCompatibility.TryCreate(api);
         rknCrafting?.RegisterRecoveryCommand(api);
-        api.Logger.Notification("[vsscpmod] 1.0.1 loaded. Information restrictions are configurable with /vsscpmod info reload; RKN crafting support is optional.");
+        api.Logger.Notification("[vsscpmod] 1.0.2 loaded. Information restrictions are configurable with /vsscpmod info reload; RKN crafting support is optional.");
     }
 
     public override void StartClientSide(ICoreClientAPI api)
@@ -117,8 +115,6 @@ public sealed class SeraphCivilizationPatchesSystem : ModSystem
         quarryShaders = null;
         creativeTabSelector?.Dispose();
         creativeTabSelector = null;
-        chiselToolsHandPlaner?.Dispose();
-        chiselToolsHandPlaner = null;
         capeRenderCompatibility?.Dispose();
         capeRenderCompatibility = null;
         clientMeshRecovery?.Dispose();

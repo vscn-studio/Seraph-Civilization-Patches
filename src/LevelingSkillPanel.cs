@@ -35,6 +35,18 @@ internal sealed class LevelingSkillPanel : IDisposable
         internal readonly double Visible = visible, Total = total;
         internal bool Initialized;
     }
+    private sealed class SkillScrollbar(ICoreClientAPI api, Action<float> changed, ElementBounds bounds, ElementBounds viewport)
+        : GuiElementScrollbar(api, changed, bounds)
+    {
+        public override void OnMouseWheel(ICoreClientAPI client, MouseWheelEventArgs args)
+        {
+            // GuiComposer also broadcasts wheel events to elements outside the pointer.
+            // Hit-test the visible clip, since the content extends beyond the window.
+            if (args.IsHandled) return;
+            int x = client.Input.MouseX, y = client.Input.MouseY;
+            if (viewport.PointInside(x, y) || Bounds.PointInside(x, y)) base.OnMouseWheel(client, args);
+        }
+    }
     private sealed class WindowState(GuiDialog dialog, GuiComposer composer, string language)
     {
         internal readonly GuiDialog Dialog = dialog;
@@ -177,7 +189,8 @@ internal sealed class LevelingSkillPanel : IDisposable
         double total = (LevelingEffects.Definitions.Length + Groups.Length) * row;
         CairoFont Font() => (CairoFont)font.Invoke(view, null)!;
         var content = ElementBounds.Fixed(0, 0, contentWidth, total);
-        composer.BeginClip(ElementBounds.Fixed(0, 34, contentWidth, visible)).BeginChildElements(content);
+        var viewport = ElementBounds.Fixed(0, 34, contentWidth, visible);
+        composer.BeginClip(viewport).BeginChildElements(content);
         var fontSizes = (Dictionary<string, float>)sizes.GetValue(view)!;
         double y = 0, valueWidth = Math.Clamp(contentWidth * .3, 64, 90), labelWidth = Math.Max(1, contentWidth - valueWidth - 8);
         foreach (var group in Groups)
@@ -199,8 +212,9 @@ internal sealed class LevelingSkillPanel : IDisposable
             }
         }
         composer.EndChildElements().EndClip();
-        composer.AddVerticalScrollbar(value => Position(content, value / Math.Max(.1, RuntimeEnv.GUIScale), total, visible),
-            ElementBounds.Fixed(width - 16, 34, 16, visible), "vsscpmod-skill-scroll");
+        composer.AddInteractiveElement(new SkillScrollbar(composer.Api,
+            value => Position(content, value / Math.Max(.1, RuntimeEnv.GUIScale), total, visible),
+            ElementBounds.Fixed(width - 16, 34, 16, visible), viewport), "vsscpmod-skill-scroll");
         states.Remove(composer); states.Add(composer, new(content, visible, total));
     }
 

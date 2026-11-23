@@ -1,6 +1,6 @@
 # Seraph Civilization Patches
 
-Vintage Story 整合包兼容补丁，模组 ID 为 `vsscpmod`，版本为 `1.0.1`，支持游戏 `1.22.3+`。客户端和服务端均需安装同一发布包，相关兼容功能随对应模组启用。
+Vintage Story 整合包兼容补丁，模组 ID 为 `vsscpmod`，版本为 `1.0.2`，支持游戏 `1.22.3+`。客户端和服务端均需安装同一发布包，相关兼容功能随对应模组启用。
 
 ## 功能
 
@@ -13,7 +13,7 @@ Vintage Story 整合包兼容补丁，模组 ID 为 `vsscpmod`，版本为 `1.0.
 | 渲染 | Toolsmith 和玩家网格恢复，Dead 存活玩家可见性兼容，披风渲染恢复及失效纹理图集防护 |
 | 界面 | 创意分类滚动、Jaunt 骑乘 HUD、Komet 快捷键和中文字体兼容 |
 | 技能与生理 | Seraph Leveling 与 SLSS 技能效果面板，满足兼容条件时迁移旧 BodyPhys 营养数据 |
-| 物品与资产 | Billposting 张贴与取下、VintageCanvas 绘画与纹理、Envelopes 戒指预览、Candela 火把及 QP 手刨修复 |
+| 物品与资产 | Billposting 张贴与取下、VintageCanvas 绘画与纹理、Envelopes 戒指预览及 Candela 火把修复 |
 | 配方与显示 | 披风、蜂箱木桶、海草、硫酸铬、派、Long-term food 配方与食品兼容 |
 | 启动 | Komet 与 Primitive Survival 共存兼容 |
 | 信息限制 | 时间、坐标、调试信息与查询命令限制，Immersive Maps 坐标界面兼容 |

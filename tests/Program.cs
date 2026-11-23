@@ -44,8 +44,6 @@ switch (suite)
     case "startup-assets": StartupAssetChecks.Run(root, game, extra); break;
     case "startup-recipes": StartupRecipeChecks.Run(root, extra); break;
     case "chromium": ChromiumSulfateChecks.Run(game, extra, args.ElementAtOrDefault(4)); break;
-    case "chiseltools": ChiselToolsChecks.Run(extra); break;
-    case "chisel-planes": ChiselPlaneChecks.Run(extra); break;
     case "longtermfood-meals": LongTermFoodMealChecks.Run(game, extra); break;
     case "fromgoldencombs": FromGoldenCombsChecks.Run(extra); break;
     default: throw new ArgumentException("Unknown test suite: " + suite);
